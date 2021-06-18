@@ -21,12 +21,12 @@ if [ "$(ls /tmp/artifacts/ 2>/dev/null)" ]; then
 fi
 
 # move the application source
-mv /tmp/s2i/src $HOME/src
+#mv /tmp/s2i/src $HOME/src
 
 # build application artifacts
 pushd ${HOME}
-make all
+#make all
 
 # install the artifacts
-make install
+#make install
 popd
