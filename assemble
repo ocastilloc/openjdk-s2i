@@ -13,15 +13,20 @@
 # invoke the build
 #maven_s2i_build
 
-echo "Before assembling"
+#!/bin/bash
 
-/usr/libexec/s2i/assemble
-rc=$?
-
-if [ $rc -eq 0 ]; then
-    echo "After successful assembling"
-else
-    echo "After failed assembling"
+# restore build artifacts
+if [ "$(ls /tmp/artifacts/ 2>/dev/null)" ]; then
+    mv /tmp/artifacts/* $HOME/.
 fi
 
-exit $rc
+# move the application source
+mv /tmp/s2i/src $HOME/src
+
+# build application artifacts
+pushd ${HOME}
+make all
+
+# install the artifacts
+make install
+popd
