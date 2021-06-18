@@ -1,5 +1,9 @@
 #!/bin/sh
 
+export JBOSS_CONTAINER_UTIL_LOGGING_MODULE=/opt/jboss/container/util/logging/
+export JBOSS_CONTAINER_MAVEN_S2I_MODULE=/opt/jboss/container/maven/s2i
+export JBOSS_CONTAINER_JAVA_S2I_MODULE=/opt/jboss/container/java/s2i
+
 set -e
 
 source "${JBOSS_CONTAINER_UTIL_LOGGING_MODULE}/logging.sh"
